@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedDarkMode = localStorage.getItem("darkMode");
     if (savedDarkMode === "enabled") {
       document.body.classList.add("dark-mode");
-      darkModeIcon.textContent = "☀️";
-      darkModeLabel.textContent = "Light";
+      if (darkModeIcon) darkModeIcon.textContent = "☀️";
+      if (darkModeLabel) darkModeLabel.textContent = "Light";
     }
 
     // Toggle dark mode
@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.toggle("dark-mode");
       
       if (document.body.classList.contains("dark-mode")) {
-        darkModeIcon.textContent = "☀️";
-        darkModeLabel.textContent = "Light";
+        if (darkModeIcon) darkModeIcon.textContent = "☀️";
+        if (darkModeLabel) darkModeLabel.textContent = "Light";
         localStorage.setItem("darkMode", "enabled");
       } else {
-        darkModeIcon.textContent = "🌙";
-        darkModeLabel.textContent = "Dark";
+        if (darkModeIcon) darkModeIcon.textContent = "🌙";
+        if (darkModeLabel) darkModeLabel.textContent = "Dark";
         localStorage.setItem("darkMode", "disabled");
       }
     });
