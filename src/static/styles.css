@@ -30,6 +30,9 @@
   --error-light: #ffebee;
   --info: #0c5460;
   --info-light: #d1ecf1;
+  
+  /* Layout variables */
+  --dark-mode-toggle-right: 200px;
 }
 
 /* Dark mode color palette */
@@ -703,7 +706,7 @@ footer {
 #dark-mode-toggle {
   position: absolute;
   top: 10px;
-  right: 200px;
+  right: var(--dark-mode-toggle-right);
   background-color: rgba(255, 255, 255, 0.2);
   border: none;
   border-radius: 20px;
