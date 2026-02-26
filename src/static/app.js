@@ -1,4 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Dark mode toggle functionality
+  const darkModeToggle = document.getElementById("dark-mode-toggle");
+  
+  // Check if dark mode toggle exists before initializing
+  if (darkModeToggle) {
+    const darkModeIcon = darkModeToggle.querySelector(".icon");
+    const darkModeLabel = darkModeToggle.querySelector(".label");
+
+    // Check for saved dark mode preference or default to light mode
+    const savedDarkMode = localStorage.getItem("darkMode");
+    if (savedDarkMode === "enabled") {
+      document.body.classList.add("dark-mode");
+      if (darkModeIcon) darkModeIcon.textContent = "☀️";
+      if (darkModeLabel) darkModeLabel.textContent = "Light";
+    }
+
+    // Toggle dark mode
+    darkModeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      
+      if (document.body.classList.contains("dark-mode")) {
+        if (darkModeIcon) darkModeIcon.textContent = "☀️";
+        if (darkModeLabel) darkModeLabel.textContent = "Light";
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        if (darkModeIcon) darkModeIcon.textContent = "🌙";
+        if (darkModeLabel) darkModeLabel.textContent = "Dark";
+        localStorage.setItem("darkMode", "disabled");
+      }
+    });
+  }
+
   // DOM elements
   const activitiesList = document.getElementById("activities-list");
   const messageDiv = document.getElementById("message");
